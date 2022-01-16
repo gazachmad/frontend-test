@@ -4,6 +4,7 @@ namespace Libraries;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use Twig\TwigFilter;
 
 class Twig
 {
@@ -18,7 +19,7 @@ class Twig
     {
         $this->twig = new Environment(new FilesystemLoader(VIEWPATH));
 
-        $filter = new \Twig\TwigFilter('parse_detail', function ($string) {
+        $filter = new TwigFilter('parse_detail', function ($string) {
             $list    = explode(':', $string);
             $list[0] = empty($list[0]) ? '' : '<span class="text-roboto-bold">' . $list[0] . '</span>';
             $list[1] = empty($list[1]) ? '' : $list[1];
