@@ -1,0 +1,310 @@
+{% extends('layout/app.html.twig') %}
+
+{% block content %}
+<!-- ======= About Section ======= -->
+<section class="hero text-montserrat pt-4 pb-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 my-auto mb-5 px-4 mb-lg-auto">
+                <h1 class="text-montserrat-bold mb-3">PHP Hosting</h1>
+                <h2 class="mb-4">Cepat, handal, penuh dengan modul PHP yang Anda butuhkan</h2>
+                <p class="mb-2"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Solusi PHP untuk performa
+                    query yang lebih cepat.</p>
+                <p class="mb-2"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Konsumsi memori yang lebih
+                    rendah.</p>
+                <p class="mb-2"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Support PHP 5.3, PHP 5.4, PHP
+                    5,5, PHP 5.6, PHP 7</p>
+                <p class="mb-2"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Fitur enkripsi lonCube dan
+                    Zend Guard Loaders</p>
+            </div>
+            <div class="col-lg-6 px-4 my-auto">
+                <img class="img-fluid" width="100%" src="assets/svg/illustration%20banner%20PHP%20hosting-01.svg"
+                    alt="PHP7" />
+            </div>
+        </div>
+    </div>
+</section><!-- End About Section -->
+<hr class="divider">
+<section class="pt-4 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 mx-auto text-center">
+                <div class="row">
+                    <div class="col-lg-4 mt-auto mx-auto">
+                        <img class="img-fluid pb-4 pb-lg-5" src="assets/images/img-zendguard.jpg" alt="zendguard" />
+                        <p class="mb-3">PHP Zend Guard Loader</p>
+                    </div>
+                    <div class="col-lg-4 mx-auto">
+                        <img class="img-fluid pb-2" src="assets/images/img-composer.jpg" alt="composer" />
+                        <p class="mb-3">PHP Composer</p>
+                    </div>
+                    <div class="col-md-4 mt-auto mx-auto">
+                        <img class="img-fluid pb-4 pb-lg-5" src="assets/images/img-ioncube.jpg" alt="ioncube" />
+                        <p class="mb-3">PHP ionCube Loader</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 my-5 mx-auto text-center">
+                <h4 class="text-montserrat-bold">Paket Hosting Singapura yang Tepat</h4>
+                <h5 class="">Diskon 40% + Domain dan SSL Gratis untuk Anda</h5>
+            </div>
+        </div>
+        <div class="row">
+            {% for item in data %}
+            <div class="col-lg-3 p-0">
+                <div class="card text-center{{item.best_seller?' border-blue':''}}">
+                    <div class="best-seller{{item.best_seller?'':' d-none'}}">
+                        <img src="assets/images/tag-best-seller.png" alt="best-seller">
+                    </div>
+                    <div class="card-header p-0 {{item.best_seller?'bg-blue text-white':'bg-white'}}">
+                        <h5 class="mb-0 py-2 text-montserrat-bold">{{item.title}}</h5>
+                        <hr class="divider mt-0">
+                        <p class="mb-2"><s>Rp {{ item.price_original|number_format(0,',','.') }}</s></p>
+                        <p class="d-flex flex-wrap align-content-start justify-content-center">Rp<span
+                                class="ms-1 text-montserrat-bold fs-40 l-40">{{item.price//1000}}</span><span
+                                class="text-montserrat-bold">.{{item.price%1000}}</span>/bln</p>
+                        <hr class="divider m-0">
+                        <p class="my-3 text-roboto-light"><span
+                                class="text-roboto-bold">{{item.jumlah_pengguna|number_format(0,',','.')}}</span>
+                            Pengguna Terdaftar</p>
+                    </div>
+                    <div class="card-body p-0">
+                        <p class="mb-1 mt-4 text-roboto-bold">{{item.feature_title}}</p>
+                        {% for item1 in item.feature %}
+                        <p class="mb-2 text-roboto-light">{{item1|parse_detail|raw}}</p>
+                        {% endfor %}
+                        <button type="button"
+                            class="btn {{item.best_seller?'btn-primary':'btn-outline-secondary'}} rounded-25 text-montserrat-bold py-2 px-4 mt-4 mb-4">{{item.button}}</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mt-5 mx-auto text-center">
+                <h3 class="mb-4">Powerful dengan Limit PHP yang Lebih Besar</h3>
+            </div>
+            <div class="col-lg-6 text-center">
+                <table class="table table-striped text-roboto" style="width: 100%">
+                    <tbody>
+                        <tr>
+                            <td><i class="bi bi-check-circle-fill green-icon"></i></td>
+                            <td>max execution time 300s</td>
+                        </tr>
+                        <tr>
+                            <td><i class="bi bi-check-circle-fill green-icon"></i></td>
+                            <td>max execution time 300s</td>
+                        </tr>
+                        <tr>
+                            <td><i class="bi bi-check-circle-fill green-icon"></i></td>
+                            <td>php memory limit 1024 MB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6 text-center">
+                <table class="table table-striped text-roboto style=" width: 100%">
+                    <tbody>
+                        <tr>
+                            <td><i class="bi bi-check-circle-fill green-icon"></i></td>
+                            <td>post max size 128 MB</td>
+                        </tr>
+                        <tr>
+                            <td><i class="bi bi-check-circle-fill green-icon"></i></td>
+                            <td>upload max filesize 128 MB</td>
+                        </tr>
+                        <tr>
+                            <td><i class="bi bi-check-circle-fill green-icon"></i></td>
+                            <td>max input vars 2500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="divider my-4"></div>
+        <div class="row">
+            <div class="col-lg-12 mx-auto text-center">
+                <h3 class="mb-4">Semua Paket Hosting Sudah Termasuk</h3>
+            </div>
+            <div class="col-md-6 col-lg-4 p-4 text-center">
+                <img class="img-fluid mb-4" width="70" src="assets/svg/icon%20PHP%20Hosting_PHP%20Semua%20Versi.svg"
+                    title="php" />
+                <h5 class="text-montserrat-bold">PHP Semua Versi</h5>
+                <p class="text-roboto">Pilih mulai dari versi PHP 5.3 s/d PHP 7. Ubah sesuka Anda!</p>
+            </div>
+            <div class="col-md-6 col-lg-4 p-4 text-center">
+                <img class="img-fluid mb-4" width="70" src="assets/svg/icon%20PHP%20Hosting_My%20SQL.svg"
+                    title="mysql" />
+                <h5 class="text-montserrat-bold">MySQL Versi 5.6</h5>
+                <p class="text-roboto">Nikmati MySQL versi terbaru, tercepat dan kaya akan fitur</p>
+            </div>
+            <div class="col-md-6 col-lg-4 p-4 text-center">
+                <img class="img-fluid mb-4" width="70" src="assets/svg/icon%20PHP%20Hosting_CPanel.svg"
+                    title="cpanel" />
+                <h5 class="text-montserrat-bold">Panel Hosting cPanel</h5>
+                <p class="text-roboto">Kelola website dengan panel canggih yang familiar di hati Anda.</p>
+            </div>
+            <div class="col-md-6 col-lg-4 p-4 text-center">
+                <img class="img-fluid mb-4" width="70" src="assets/svg/icon%20PHP%20Hosting_garansi%20uptime.svg"
+                    title="garansi uptime 99%" />
+                <h5 class="text-montserrat-bold">Garansi Uptime 99.9%</h5>
+                <p class="text-roboto">Data center yang mendukung kelangsungan website Anda 24/7.</p>
+            </div>
+            <div class="col-md-6 col-lg-4 p-4 text-center">
+                <img class="img-fluid mb-4" width="70" src="assets/svg/icon%20PHP%20Hosting_InnoDB.svg"
+                    title="unlimited innodb" />
+                <h5 class="text-montserrat-bold">Database InnoDB Unlimited</h5>
+                <p class="text-roboto">Jumlah dan ukuran database yang tumbuh sesuai kebutuhan Anda.</p>
+            </div>
+            <div class="col-md-6 col-lg-4 p-4 text-center">
+                <img class="img-fluid mb-4" width="70" src="assets/svg/icon%20PHP%20Hosting_My%20SQL%20remote.svg"
+                    title="wildcard remote mysql" />
+                <h5 class="text-montserrat-bold">Wildcard Remote MySQL</h5>
+                <p class="text-roboto">Mendukung s/d 25 max_user_connections dan 100 max_connections.</p>
+            </div>
+        </div>
+        <div class="divider my-4"></div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="mb-4">Mendukung Penuh Framework Laravel</h3>
+            </div>
+            <div class="col-lg-6 my-auto mb-5 px-4 mb-lg-auto">
+                <p class="mb-4">Tak perlu menggunakan dedicated server ataupun VPS yang mahal. Layanan PHP hosting murah
+                    kami mendukung penuh framework favorit Anda</p>
+                <p class="mb-2 text-roboto"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Install Laravel
+                    <span class="text-roboto-bold">1
+                        klik</span> dengan Softaculous Installer.
+                </p>
+                <p class="mb-2 text-roboto"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Mendukung ekstensi
+                    <span class="text-roboto-bold">PHP MCrypt, phar, mbstring, json,</span> dan <span
+                        class="text-roboto-bold">fileinfo.</span>
+                </p>
+                <p class="mb-4 text-roboto"><i class="bi bi-check-circle-fill green-icon"></i> &nbsp; Tersedia
+                    <span class="text-roboto-bold">Composer</span> dan <span class="text-roboto-bold">SSH</span> untuk
+                    menginstal packages pilihan Anda.
+                </p>
+                <p class="mb-4 text-roboto fs-12">Nb. Composer dan SSH hanya tersedia pada paket Personal dan
+                    Bisnis</p>
+
+                <button type="button" class="btn btn-primary rounded-25 text-montserrat-bold py-2 px-4">Pilih Hosting
+                    Anda</button>
+            </div>
+            <div class="col-lg-6 px-4 my-auto">
+                <img class="img-fluid" width="100%"
+                    src="assets/svg/illustration%20banner%20support%20laravel%20hosting.svg" alt="mbstring json phar" />
+            </div>
+        </div>
+    </div>
+</section><!-- End About Section -->
+<hr class="divider">
+<!-- ======= About Section ======= -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="mb-4">Modul Lengkap untuk Menjalankan Aplikasi PHP Anda.</h3>
+            </div>
+            <div class="offset-4 col-lg-3 offset-lg-1 col-md-6 offset-md-2 text-roboto">
+                <p class="mb-1">IcePHP</p>
+                <p class="mb-1">apc</p>
+                <p class="mb-1">apcu</p>
+                <p class="mb-1">apm</p>
+                <p class="mb-1">ares</p>
+                <p class="mb-1">bcmath</p>
+                <p class="mb-1">bcompiler</p>
+                <p class="mb-1">big_int</p>
+                <p class="mb-1">bitset</p>
+                <p class="mb-1">bloomy</p>
+                <p class="mb-1">bz2_filter</p>
+                <p class="mb-1">clamav</p>
+                <p class="mb-1">coin_acceptor</p>
+                <p class="mb-1">crack</p>
+                <p class="mb-1">dba</p>
+            </div>
+            <div class="offset-4 col-lg-3 col-md-4 offset-md-0 text-roboto">
+                <p class="mb-1">http</p>
+                <p class="mb-1">huffman</p>
+                <p class="mb-1">idn</p>
+                <p class="mb-1">igbinary</p>
+                <p class="mb-1">imagick</p>
+                <p class="mb-1">imap</p>
+                <p class="mb-1">inclued</p>
+                <p class="mb-1">inotify</p>
+                <p class="mb-1">interbase</p>
+                <p class="mb-1">intl</p>
+                <p class="mb-1">ioncube_loader</p>
+                <p class="mb-1">ioncube_loader_4</p>
+                <p class="mb-1">jsmin</p>
+                <p class="mb-1">json</p>
+                <p class="mb-1">ldap</p>
+            </div>
+            <div class="offset-4 col-lg-3 offset-lg-0 col-md-6 offset-md-2 text-roboto">
+                <p class="mb-1">nd_pdo_mysql</p>
+                <p class="mb-1">oauth</p>
+                <p class="mb-1">oci8</p>
+                <p class="mb-1">odbc</p>
+                <p class="mb-1">opcache</p>
+                <p class="mb-1">pdf</p>
+                <p class="mb-1">pdo</p>
+                <p class="mb-1">pdo_dblib</p>
+                <p class="mb-1">pdo_firebird</p>
+                <p class="mb-1">pdo_mysql</p>
+                <p class="mb-1">pdo_odbc</p>
+                <p class="mb-1">pdo_pgsql</p>
+                <p class="mb-1">pdo_sqlite</p>
+                <p class="mb-1">pgsql</p>
+                <p class="mb-1">phalcon</p>
+            </div>
+            <div class="offset-4 col-lg-2 col-md-4 offset-md-0 text-roboto">
+                <p class="mb-1">stats</p>
+                <p class="mb-1">stem</p>
+                <p class="mb-1">stomp</p>
+                <p class="mb-1">suhosin</p>
+                <p class="mb-1">sybase_ct</p>
+                <p class="mb-1">sysvmsg</p>
+                <p class="mb-1">sysvsem</p>
+                <p class="mb-1">sysvshm</p>
+                <p class="mb-1">tidy</p>
+                <p class="mb-1">timezonedb</p>
+                <p class="mb-1">trader</p>
+                <p class="mb-1">translit</p>
+                <p class="mb-1">uploadprogress</p>
+                <p class="mb-1">uri_template</p>
+                <p class="mb-1">uuid</p>
+            </div>
+            <div class="col-lg-12 mt-5 text-center">
+                <button type="button"
+                    class="btn btn-outline-secondary rounded-25 text-montserrat-bold py-2 px-4">Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+</section><!-- End About Section -->
+<!-- ======= About Section ======= -->
+<section class="pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 my-auto mb-5 px-4">
+                <h3 class="mb-4">Linux Hosting yang Stabil dengan Teknologi LVE</h3>
+                <p class="mb-4 text-roboto-light">SuperMicro <span class="text-roboto-bold">Intel Xeon 24-Cores</span>
+                    server
+                    dengan <span class="text-roboto-bold">RAM 128 GB</span> dan
+                    teknologi <span class="text-roboto-bold">LVE CloudLinux</span> untuk stabilitas server Anda.
+                    Dilengkapi dengan
+                    <span class="text-roboto-bold">SSD</span> untuk kecepatan <span
+                        class="text-roboto-bold">MySQL</span> dan caching, Apache load balancer berbasis
+                    LiteSpeed Technologies, <span class="text-roboto-bold">CageFS</span> security, <span
+                        class="text-roboto-bold">Raid-10</span> protection dan auto
+                    backup untuk keamanan website PHP Anda.
+                </p>
+                <button type="button" class="btn btn-primary rounded-25 text-montserrat-bold py-2 px-4">Pilih Hosting
+                    Anda</button>
+            </div>
+            <div class="col-lg-6 px-4 pt-5 mt-auto">
+                <img class="img-fluid" width="100%" src="assets/images/Image support.png" alt="customer service" />
+            </div>
+        </div>
+    </div>
+</section><!-- End About Section -->
+{% endblock %}
